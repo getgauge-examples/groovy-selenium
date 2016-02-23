@@ -33,7 +33,7 @@ mvn test
 ```
 mvn test
 ```
-This runs Gauge specs with [gradle](gradle.org).
+This runs Gauge specs with [maven](https://maven.apache.org/).
 
 Note:
   * Gauge can also be used with other [build tools](http://getgauge.io/documentation/user/current/test_code/java/using_build_tools.html) like gradle and ant.
