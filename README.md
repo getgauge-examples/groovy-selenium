@@ -22,13 +22,7 @@ java -jar activeadmin-demo.war
 ```
 * The SUT should now be available at [http://localhost:8080/](http://localhost:8080)
 
-### On Linux / Mac
-
-```
-mvn clean test
-```
-
-### On Windows
+### Execute specs
 
 ```
 mvn clean test
