@@ -7,7 +7,7 @@ import com.thoughtworks.gauge.example.pages.ProductListPage
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.support.PageFactory
 
-public class ExecutionHooks {
+class ExecutionHooks {
 
     private final WebDriver driver
     private Table table

@@ -2,7 +2,7 @@ package com.thoughtworks.gauge.example.pages
 
 import org.openqa.selenium.WebElement
 
-public class CreateProductPage extends BasePage {
+class CreateProductPage extends BasePage {
     public static String NewProductUrl = Url.concat("admin/products/new/")
 
     public WebElement product_title

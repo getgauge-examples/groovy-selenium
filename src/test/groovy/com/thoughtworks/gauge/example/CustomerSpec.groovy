@@ -6,7 +6,7 @@ import com.thoughtworks.gauge.example.pages.CustomerPage
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.support.PageFactory
 
-public class CustomerSpec {
+class CustomerSpec {
     private final WebDriver driver
 
     public CustomerSpec() {

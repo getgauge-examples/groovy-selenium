@@ -5,14 +5,14 @@ import com.thoughtworks.gauge.example.pages.SignUpPage
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.support.PageFactory
 
-public class UserSpec {
+class UserSpec {
     private final WebDriver driver
 
     public UserSpec() {
         this.driver = DriverFactory.getDriver()
     }
 
-    public String localPart() {
+    String localPart() {
         // Creating a random local part of an email address also used as username
         return UUID.randomUUID().toString()
     }

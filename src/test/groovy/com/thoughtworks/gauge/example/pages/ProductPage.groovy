@@ -8,27 +8,27 @@ import org.openqa.selenium.support.How
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 
-public class ProductPage extends BasePage {
+class ProductPage extends BasePage {
 
     @FindBy(how = How.CSS, css = "#main_content table tbody tr:nth-child(1) td")
-    public WebElement productId
+    WebElement productId
 
     @FindBy(how = How.CSS, css = "#main_content table tbody tr:nth-child(2) td")
-    public WebElement title
+    WebElement title
 
     @FindBy(how = How.CSS, css = "#main_content table tbody tr:nth-child(3) td")
-    public WebElement description
+    WebElement description
 
     @FindBy(how = How.CSS, css = "#main_content table tbody tr:nth-child(4) td")
-    public WebElement author
+    WebElement author
 
     @FindBy(how = How.CSS, css = "#main_content table tbody tr:nth-child(5) td")
-    public WebElement price
+    WebElement price
 
     @FindBy(how = How.CSS, css = "#titlebar_right div.action_items span.action_item:nth-child(2) a")
-    public WebElement deleteButton
+    WebElement deleteButton
 
-    public WebElement getWebElementByName(String elementName) {
+    WebElement getWebElementByName(String elementName) {
         switch (elementName) {
             case "title":
                 return title
@@ -42,11 +42,11 @@ public class ProductPage extends BasePage {
         return null
     }
 
-    public void verifyProductSpecifier(WebElement specifier, String value) {
+    void verifyProductSpecifier(WebElement specifier, String value) {
         assert specifier.getText().equals(value)
     }
 
-    public void delete(WebDriver driver) {
+    void delete(WebDriver driver) {
         deleteButton.click()
         WebDriverWait wait = new WebDriverWait(driver, 2)
         wait.until(ExpectedConditions.alertIsPresent())

@@ -2,7 +2,7 @@ package com.thoughtworks.gauge.example.pages
 
 import org.openqa.selenium.WebElement
 
-public class SignUpPage extends BasePage {
+class SignUpPage extends BasePage {
     public static String SignUpUrl = Url.concat("signup")
 
     public WebElement user_username
