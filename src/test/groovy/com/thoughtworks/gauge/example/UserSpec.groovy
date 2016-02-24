@@ -14,7 +14,7 @@ class UserSpec {
 
     String localPart() {
         // Creating a random local part of an email address also used as username
-        return UUID.randomUUID().toString()
+        UUID.randomUUID().toString()
     }
 
     @Step("On signup page")

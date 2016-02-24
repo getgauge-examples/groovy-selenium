@@ -3,19 +3,19 @@ package com.thoughtworks.gauge.example.pages
 import org.openqa.selenium.WebElement
 
 class CreateProductPage extends BasePage {
-    public static String NewProductUrl = Url.concat("admin/products/new/")
+    static String NewProductUrl = Url.concat("admin/products/new/")
 
-    public WebElement product_title
+    WebElement product_title
 
-    public WebElement product_description
+    WebElement product_description
 
-    public WebElement product_author
+    WebElement product_author
 
-    public WebElement product_price
+    WebElement product_price
 
-    public WebElement commit
+    WebElement commit
 
-    public WebElement product_image_file_name
+    WebElement product_image_file_name
 
     def create(String title, String desc, String author, String price) {
         product_title.sendKeys(title)

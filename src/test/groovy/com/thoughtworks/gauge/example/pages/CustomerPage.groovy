@@ -14,13 +14,13 @@ class CustomerPage extends BasePage {
     @FindBy(how = How.CSS, css = "table#index_table_customers tbody tr:nth-child(1) td.col-username")
     WebElement usernameResult
 
-    void searchUser(String username) {
+    def searchUser(String username) {
         q_username.clear()
         q_username.sendKeys(username)
         commit.click()
     }
 
-    void verifyUserListed(String username) {
+    def verifyUserListed(String username) {
         assert username.equals(usernameResult.getText())
     }
 }

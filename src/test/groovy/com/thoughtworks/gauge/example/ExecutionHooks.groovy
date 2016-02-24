@@ -22,7 +22,7 @@ class ExecutionHooks {
         def productListPage = PageFactory.initElements(driver, ProductListPage)
         productListPage.search("The Way to Go")
         productListPage.openFirstProduct()
-        productListPage.storeStringToScenarioDataStore("productId", productListPage.productId.getText())
+        productListPage.storeStringToScenarioDataStore("productId", productListPage.productId.text)
     }
 
     @AfterSuite

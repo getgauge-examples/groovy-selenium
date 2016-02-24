@@ -32,11 +32,11 @@ class CustomerSpec {
 
     @Step("Search for customers <table>")
     def verifyCustomers(Table table) {
-        List<TableRow> rows = table.getTableRows()
-        List<String> columnNames = table.getColumnNames()
+        List<TableRow> rows = table.tableRows
+        List<String> columnNames = table.columnNames
         rows.each { row ->
-            searchUser(row.getCell(columnNames.get(0)))
-            verifyUserIsListed(row.getCell(columnNames.get(0)))
+            searchUser(row.getCell(columnNames[0]))
+            verifyUserIsListed(row.getCell(columnNames[0]))
         }
     }
 

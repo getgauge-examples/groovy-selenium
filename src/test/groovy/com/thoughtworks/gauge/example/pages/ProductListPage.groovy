@@ -14,12 +14,12 @@ class ProductListPage extends ProductPage {
     @FindBy(how = How.CSS, css = "#main_content table tbody tr:nth-child(1) td.product a")
     WebElement firstProduct
 
-    void search(String name) {
+    def search(String name) {
         q_title.sendKeys(name)
         commit.click()
     }
 
-    void openFirstProduct() {
+    def openFirstProduct() {
         firstProduct.click()
     }
 }

@@ -32,16 +32,16 @@ To use the examples locally you would need to follow these steps:
 
      static String fetchStringFromScenarioDataStore(String key) {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore()
-        return (String) scenarioStore.get(key)
+        scenarioStore.get(key)
     }
 
      static String fetchStringFromSpecDataStore(String key) {
         DataStore specStore = DataStoreFactory.getSpecDataStore()
-        return (String) specStore.get(key)
+        specStore.get(key)
     }
 
      static String fetchStringFromSuiteDataStore(String key) {
         DataStore suiteStore = DataStoreFactory.getSuiteDataStore()
-        return (String) suiteStore.get(key)
+        suiteStore.get(key)
     }
 }

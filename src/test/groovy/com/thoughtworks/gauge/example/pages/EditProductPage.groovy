@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement
 class EditProductPage extends ProductPage {
 
     static String EditProductUrl(String productId) {
-        return Url.concat("admin/products/" + productId + "/edit")
+        Url.concat("admin/products/" + productId + "/edit")
     }
 
     WebElement product_title

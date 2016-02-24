@@ -43,7 +43,7 @@ class ProductPage extends BasePage {
     }
 
     void verifyProductSpecifier(WebElement specifier, String value) {
-        assert specifier.getText().equals(value)
+        assert specifier.text.equals(value)
     }
 
     void delete(WebDriver driver) {
