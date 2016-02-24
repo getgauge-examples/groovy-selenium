@@ -5,17 +5,12 @@ import org.openqa.selenium.WebElement
 class CreateProductPage extends BasePage {
     static String NewProductUrl = Url.concat("admin/products/new/")
 
-    WebElement product_title
-
-    WebElement product_description
-
-    WebElement product_author
-
-    WebElement product_price
-
-    WebElement commit
-
-    WebElement product_image_file_name
+    WebElement product_title,
+               product_description,
+               product_author,
+               product_price,
+               commit,
+               product_image_file_name
 
     def create(String title, String desc, String author, String price) {
         product_title.sendKeys(title)

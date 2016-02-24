@@ -8,25 +8,16 @@ class EditProductPage extends ProductPage {
         Url.concat("admin/products/" + productId + "/edit")
     }
 
-    WebElement product_title
-
-    WebElement product_description
-
-    WebElement product_author
-
-    WebElement product_price
-
-    WebElement product_featured
-
-    WebElement product_available_on_1i
-
-    WebElement product_available_on_2i
-
-    WebElement product_available_on_3i
-
-    WebElement product_image_file_name
-
-    WebElement commit
+    WebElement product_title,
+               product_description,
+               product_author,
+               product_price,
+               product_featured,
+               product_available_on_1i,
+               product_available_on_2i,
+               product_available_on_3i,
+               product_image_file_name,
+               commit
 
     void saveProduct() {
         commit.click()

@@ -7,9 +7,8 @@ import org.openqa.selenium.support.How
 class ProductListPage extends ProductPage {
     static String ProductsUrl = Url.concat("admin/products/")
 
-    WebElement q_title
-
-    WebElement commit
+    WebElement q_title,
+            commit
 
     @FindBy(how = How.CSS, css = "#main_content table tbody tr:nth-child(1) td.product a")
     WebElement firstProduct

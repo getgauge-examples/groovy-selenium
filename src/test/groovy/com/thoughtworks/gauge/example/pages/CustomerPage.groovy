@@ -7,9 +7,8 @@ import org.openqa.selenium.support.How
 class CustomerPage extends BasePage {
     static String CustomerUrl = Url.concat("admin/customers/")
 
-    WebElement q_username
-
-    WebElement commit
+    WebElement q_username,
+            commit
 
     @FindBy(how = How.CSS, css = "table#index_table_customers tbody tr:nth-child(1) td.col-username")
     WebElement usernameResult

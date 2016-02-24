@@ -25,7 +25,7 @@ class ProductSpec {
         rows.each { row ->
             openNewProductsPage()
             CreateProductPage createProductPage = PageFactory.initElements(driver, CreateProductPage)
-            createProductPage.create(row.getCell(columnNames.get(0)),row.getCell(columnNames.get(1)), row.getCell(columnNames.get(2)), row.getCell(columnNames.get(3)))
+            createProductPage.create(row.getCell(columnNames[0]),row.getCell(columnNames[1]), row.getCell(columnNames[2]), row.getCell(columnNames[3]))
         }
     }
 
@@ -69,8 +69,8 @@ class ProductSpec {
 
     @Step("Update product specifier to new value <table>")
     def updateProductValue(Table table) {
-        List<TableRow> rows = table.getTableRows()
-        List<String> columnNames = table.getColumnNames()
+        List<TableRow> rows = table.tableRows
+        List<String> columnNames = table.columnNames
         rows.each { row ->
             openProductEditPage()
             EditProductPage editProductPage = PageFactory.initElements(driver, EditProductPage)
@@ -80,12 +80,12 @@ class ProductSpec {
 
     @Step("Check product specifier has new value <table>")
     def verifyProductValue(Table table) {
-        List<TableRow> rows = table.getTableRows()
-        List<String> columnNames = table.getColumnNames()
+        List<TableRow> rows = table.tableRows
+        List<String> columnNames = table.columnNames
         rows.each { row ->
             def productPage = PageFactory.initElements(driver, ProductPage)
-            WebElement specifier = productPage.getWebElementByName((row.getCell(columnNames.get(0))))
-            productPage.verifyProductSpecifier(specifier, row.getCell(columnNames.get(1)))
+            WebElement specifier = productPage.getWebElementByName((row.getCell(columnNames[0])))
+            productPage.verifyProductSpecifier(specifier, row.getCell(columnNames[1]))
         }
     }
 }

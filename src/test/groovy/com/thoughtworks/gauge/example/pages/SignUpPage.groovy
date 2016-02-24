@@ -3,15 +3,15 @@ package com.thoughtworks.gauge.example.pages
 import org.openqa.selenium.WebElement
 
 class SignUpPage extends BasePage {
-    public static String SignUpUrl = Url.concat("signup")
+    static String SignUpUrl = Url.concat("signup")
 
-    public WebElement user_username
+    WebElement user_username
 
-    public WebElement user_email
+    WebElement user_email
 
-    public WebElement user_password
+    WebElement user_password
 
-    public WebElement user_password_confirmation
+    WebElement user_password_confirmation
 
-    public WebElement commit
+    WebElement commit
 }
