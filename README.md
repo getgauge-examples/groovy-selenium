@@ -13,6 +13,8 @@ This example requires the following softwares to run.
   * Gauge Java plugin
     * Gauge Java plugin can be installed using `gauge --install java`
 
+You can optionally install [Gauge-IntelliJ plugin](http://getgauge.io/documentation/user/current/ide_support/intellij_idea.html).
+
 ### Setting up the System Under Test (SUT)
 
 * Download [activeadmin-demo.war](https://bintray.com/artifact/download/gauge/activeadmin-demo/activeadmin-demo.war)
