@@ -19,7 +19,7 @@ public class ExecutionHooks {
     @BeforeScenario(tags = ["edit"])
     def findAndStoreProductId() {
         driver.get(ProductListPage.ProductsUrl)
-        ProductListPage productListPage = PageFactory.initElements(driver, ProductListPage.class)
+        def productListPage = PageFactory.initElements(driver, ProductListPage.class)
         productListPage.search("The Way to Go")
         productListPage.openFirstProduct()
         productListPage.storeStringToScenarioDataStore("productId", productListPage.productId.getText())

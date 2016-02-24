@@ -13,7 +13,6 @@ import org.openqa.selenium.support.PageFactory
 
 public class ProductSpec {
     private final WebDriver driver
-    private Table table
 
     public ProductSpec() {
         this.driver=DriverFactory.getDriver()
@@ -23,7 +22,7 @@ public class ProductSpec {
     def CreateProduct(Table table) {
         List<TableRow> rows = table.getTableRows()
         List<String> columnNames = table.getColumnNames()
-        for (TableRow row : rows) {
+        rows.each { row ->
             openNewProductsPage()
             CreateProductPage createProductPage = PageFactory.initElements(driver, CreateProductPage.class)
             createProductPage.create(row.getCell(columnNames.get(0)),row.getCell(columnNames.get(1)), row.getCell(columnNames.get(2)), row.getCell(columnNames.get(3)))
@@ -54,8 +53,7 @@ public class ProductSpec {
 
     @Step("Delete this product")
     def deleteProduct() {
-        ProductPage productPage = PageFactory.initElements(driver, ProductPage.class)
-        productPage.delete(driver)
+        PageFactory.initElements(driver, ProductPage.class).delete(driver)
     }
 
     @Step("On new products page")
@@ -65,7 +63,7 @@ public class ProductSpec {
 
     @Step("Open product edit page for stored productId")
     def openProductEditPage() {
-        EditProductPage editProductPage = PageFactory.initElements(driver, EditProductPage.class)
+        def editProductPage = PageFactory.initElements(driver, EditProductPage.class)
         driver.get(EditProductPage.EditProductUrl(editProductPage.fetchStringFromScenarioDataStore("productId")))
     }
 
@@ -73,7 +71,7 @@ public class ProductSpec {
     def updateProductValue(Table table) {
         List<TableRow> rows = table.getTableRows()
         List<String> columnNames = table.getColumnNames()
-        for (TableRow row : rows) {
+        rows.each { row ->
             openProductEditPage()
             EditProductPage editProductPage = PageFactory.initElements(driver, EditProductPage.class)
             editProductPage.updateProductValue(row.getCell(columnNames.get(0)), row.getCell(columnNames.get(1)))
@@ -84,8 +82,8 @@ public class ProductSpec {
     def verifyProductValue(Table table) {
         List<TableRow> rows = table.getTableRows()
         List<String> columnNames = table.getColumnNames()
-        for (TableRow row : rows) {
-            ProductPage productPage = PageFactory.initElements(driver, ProductPage.class)
+        rows.each { row ->
+            def productPage = PageFactory.initElements(driver, ProductPage.class)
             WebElement specifier = productPage.getWebElementByName((row.getCell(columnNames.get(0))))
             productPage.verifyProductSpecifier(specifier, row.getCell(columnNames.get(1)))
         }

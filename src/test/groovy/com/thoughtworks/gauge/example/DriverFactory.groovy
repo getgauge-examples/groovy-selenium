@@ -17,7 +17,7 @@ public class DriverFactory {
 
     @BeforeSuite
     def Setup() {
-        String browser = System.getenv("browser.name")
+        def browser = System.getenv("browser.name")
         if (browser.toLowerCase().equals(CHROME)) {
             driver = new ChromeDriver()
         } else {

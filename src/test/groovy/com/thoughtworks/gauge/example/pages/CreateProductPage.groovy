@@ -17,8 +17,7 @@ public class CreateProductPage extends BasePage {
 
     public WebElement product_image_file_name
 
-    def create(String title, String desc, String author, String price)
-    {
+    def create(String title, String desc, String author, String price) {
         product_title.sendKeys(title)
         product_description.sendKeys(desc)
         product_author.sendKeys(author)
