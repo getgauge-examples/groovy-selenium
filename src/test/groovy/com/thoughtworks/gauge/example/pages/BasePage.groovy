@@ -12,36 +12,36 @@ To use the examples locally you would need to follow these steps:
  ./script/rails server
 */
 
-public abstract class BasePage {
+ abstract class BasePage {
     protected static String Url = System.getenv("APP_ENDPOINT")
 
-    public static void storeStringToScenarioDataStore(String key, String value) {
+     static void storeStringToScenarioDataStore(String key, String value) {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore()
         scenarioStore.put(key, value)
     }
 
-    public static void storeStringToSpecDataStore(String key, String value) {
+     static void storeStringToSpecDataStore(String key, String value) {
         DataStore specStore = DataStoreFactory.getSpecDataStore()
         specStore.put(key, value)
     }
 
-    public static void storeStringToSuiteDataStore(String key, String value) {
+     static void storeStringToSuiteDataStore(String key, String value) {
         DataStore suiteStore = DataStoreFactory.getSuiteDataStore()
         suiteStore.put(key, value)
     }
 
-    public static String fetchStringFromScenarioDataStore(String key) {
+     static String fetchStringFromScenarioDataStore(String key) {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore()
-        return (String) scenarioStore.get(key)
+        scenarioStore.get(key)
     }
 
-    public static String fetchStringFromSpecDataStore(String key) {
+     static String fetchStringFromSpecDataStore(String key) {
         DataStore specStore = DataStoreFactory.getSpecDataStore()
-        return (String) specStore.get(key)
+        specStore.get(key)
     }
 
-    public static String fetchStringFromSuiteDataStore(String key) {
+     static String fetchStringFromSuiteDataStore(String key) {
         DataStore suiteStore = DataStoreFactory.getSuiteDataStore()
-        return (String) suiteStore.get(key)
+        suiteStore.get(key)
     }
 }

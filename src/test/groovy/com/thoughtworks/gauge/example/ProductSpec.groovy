@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.PageFactory
 
-public class ProductSpec {
+class ProductSpec {
     private final WebDriver driver
 
     public ProductSpec() {
@@ -24,8 +24,8 @@ public class ProductSpec {
         List<String> columnNames = table.getColumnNames()
         rows.each { row ->
             openNewProductsPage()
-            CreateProductPage createProductPage = PageFactory.initElements(driver, CreateProductPage.class)
-            createProductPage.create(row.getCell(columnNames.get(0)),row.getCell(columnNames.get(1)), row.getCell(columnNames.get(2)), row.getCell(columnNames.get(3)))
+            CreateProductPage createProductPage = PageFactory.initElements(driver, CreateProductPage)
+            createProductPage.create(row.getCell(columnNames[0]),row.getCell(columnNames[1]), row.getCell(columnNames[2]), row.getCell(columnNames[3]))
         }
     }
 
@@ -36,24 +36,24 @@ public class ProductSpec {
 
     @Step("Search for product <name>")
     def searchProduct(String title) {
-        ProductListPage productListPage = PageFactory.initElements(driver, ProductListPage.class)
+        ProductListPage productListPage = PageFactory.initElements(driver, ProductListPage)
         productListPage.search(title)
     }
     @Step("Open description for product <name>")
     def viewProductDescription(String name) {
-        ProductListPage productListPage = PageFactory.initElements(driver, ProductListPage.class)
+        ProductListPage productListPage = PageFactory.initElements(driver, ProductListPage)
         productListPage.openFirstProduct()
     }
 
     @Step("Verify product <specifier> as <value>")
     def verifyProduct(String specifier, String value) {
-        ProductPage productPage = PageFactory.initElements(driver, ProductPage.class)
+        ProductPage productPage = PageFactory.initElements(driver, ProductPage)
         productPage.verifyProductSpecifier(productPage.getWebElementByName(specifier), value)
     }
 
     @Step("Delete this product")
     def deleteProduct() {
-        PageFactory.initElements(driver, ProductPage.class).delete(driver)
+        PageFactory.initElements(driver, ProductPage).delete(driver)
     }
 
     @Step("On new products page")
@@ -63,29 +63,29 @@ public class ProductSpec {
 
     @Step("Open product edit page for stored productId")
     def openProductEditPage() {
-        def editProductPage = PageFactory.initElements(driver, EditProductPage.class)
+        def editProductPage = PageFactory.initElements(driver, EditProductPage)
         driver.get(EditProductPage.EditProductUrl(editProductPage.fetchStringFromScenarioDataStore("productId")))
     }
 
     @Step("Update product specifier to new value <table>")
     def updateProductValue(Table table) {
-        List<TableRow> rows = table.getTableRows()
-        List<String> columnNames = table.getColumnNames()
+        List<TableRow> rows = table.tableRows
+        List<String> columnNames = table.columnNames
         rows.each { row ->
             openProductEditPage()
-            EditProductPage editProductPage = PageFactory.initElements(driver, EditProductPage.class)
+            EditProductPage editProductPage = PageFactory.initElements(driver, EditProductPage)
             editProductPage.updateProductValue(row.getCell(columnNames.get(0)), row.getCell(columnNames.get(1)))
         }
     }
 
     @Step("Check product specifier has new value <table>")
     def verifyProductValue(Table table) {
-        List<TableRow> rows = table.getTableRows()
-        List<String> columnNames = table.getColumnNames()
+        List<TableRow> rows = table.tableRows
+        List<String> columnNames = table.columnNames
         rows.each { row ->
-            def productPage = PageFactory.initElements(driver, ProductPage.class)
-            WebElement specifier = productPage.getWebElementByName((row.getCell(columnNames.get(0))))
-            productPage.verifyProductSpecifier(specifier, row.getCell(columnNames.get(1)))
+            def productPage = PageFactory.initElements(driver, ProductPage)
+            WebElement specifier = productPage.getWebElementByName((row.getCell(columnNames[0])))
+            productPage.verifyProductSpecifier(specifier, row.getCell(columnNames[1]))
         }
     }
 }

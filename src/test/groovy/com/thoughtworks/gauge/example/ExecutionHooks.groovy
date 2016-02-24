@@ -7,7 +7,7 @@ import com.thoughtworks.gauge.example.pages.ProductListPage
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.support.PageFactory
 
-public class ExecutionHooks {
+class ExecutionHooks {
 
     private final WebDriver driver
     private Table table
@@ -19,10 +19,10 @@ public class ExecutionHooks {
     @BeforeScenario(tags = ["edit"])
     def findAndStoreProductId() {
         driver.get(ProductListPage.ProductsUrl)
-        def productListPage = PageFactory.initElements(driver, ProductListPage.class)
+        def productListPage = PageFactory.initElements(driver, ProductListPage)
         productListPage.search("The Way to Go")
         productListPage.openFirstProduct()
-        productListPage.storeStringToScenarioDataStore("productId", productListPage.productId.getText())
+        productListPage.storeStringToScenarioDataStore("productId", productListPage.productId.text)
     }
 
     @AfterSuite

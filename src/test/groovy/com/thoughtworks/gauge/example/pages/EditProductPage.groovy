@@ -2,38 +2,29 @@ package com.thoughtworks.gauge.example.pages
 
 import org.openqa.selenium.WebElement
 
-public class EditProductPage extends com.thoughtworks.gauge.example.pages.ProductPage {
+class EditProductPage extends ProductPage {
 
-    public static String EditProductUrl(String productId) {
-        return Url.concat("admin/products/"+productId+"/edit")
+    static String EditProductUrl(String productId) {
+        Url.concat("admin/products/" + productId + "/edit")
     }
 
-    public WebElement product_title
+    WebElement product_title,
+               product_description,
+               product_author,
+               product_price,
+               product_featured,
+               product_available_on_1i,
+               product_available_on_2i,
+               product_available_on_3i,
+               product_image_file_name,
+               commit
 
-    public WebElement product_description
-
-    public WebElement product_author
-
-    public WebElement product_price
-
-    public WebElement product_featured
-
-    public WebElement product_available_on_1i
-
-    public WebElement product_available_on_2i
-
-    public WebElement product_available_on_3i
-
-    public WebElement product_image_file_name
-
-    public WebElement commit
-
-    public void saveProduct() {
+    void saveProduct() {
         commit.click()
     }
 
-    public void updateProductValue(String specifier, String newValue) {
-        switch(specifier.toLowerCase()) {
+    void updateProductValue(String specifier, String newValue) {
+        switch (specifier.toLowerCase()) {
             case "title":
                 product_title.clear()
                 product_title.sendKeys(newValue)

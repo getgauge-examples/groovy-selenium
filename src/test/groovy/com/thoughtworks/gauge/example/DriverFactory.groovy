@@ -6,14 +6,10 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 
-public class DriverFactory {
+class DriverFactory {
     private static final String CHROME = "chrome"
 
-    public static WebDriver getDriver() {
-        return driver
-    }
-
-    private static WebDriver driver
+    static WebDriver driver
 
     @BeforeSuite
     def Setup() {

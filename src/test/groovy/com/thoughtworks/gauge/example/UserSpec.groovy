@@ -5,16 +5,16 @@ import com.thoughtworks.gauge.example.pages.SignUpPage
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.support.PageFactory
 
-public class UserSpec {
+class UserSpec {
     private final WebDriver driver
 
     public UserSpec() {
         this.driver = DriverFactory.getDriver()
     }
 
-    public String localPart() {
+    String localPart() {
         // Creating a random local part of an email address also used as username
-        return UUID.randomUUID().toString()
+        UUID.randomUUID().toString()
     }
 
     @Step("On signup page")
@@ -25,7 +25,7 @@ public class UserSpec {
     @Step("Fill in and send registration form")
     def searchUser() {
         String username = localPart()
-        SignUpPage signUpPage = PageFactory.initElements(driver, SignUpPage.class)
+        SignUpPage signUpPage = PageFactory.initElements(driver, SignUpPage)
         signUpPage.user_username.sendKeys(username)
         signUpPage.user_email.sendKeys(username.concat("@domain.com"))
         signUpPage.user_password.sendKeys("qweqwe")
