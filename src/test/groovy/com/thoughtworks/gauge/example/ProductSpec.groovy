@@ -24,7 +24,7 @@ public class ProductSpec {
         List<String> columnNames = table.getColumnNames()
         rows.each { row ->
             openNewProductsPage()
-            CreateProductPage createProductPage = PageFactory.initElements(driver, CreateProductPage.class)
+            CreateProductPage createProductPage = PageFactory.initElements(driver, CreateProductPage)
             createProductPage.create(row.getCell(columnNames.get(0)),row.getCell(columnNames.get(1)), row.getCell(columnNames.get(2)), row.getCell(columnNames.get(3)))
         }
     }
@@ -36,24 +36,24 @@ public class ProductSpec {
 
     @Step("Search for product <name>")
     def searchProduct(String title) {
-        ProductListPage productListPage = PageFactory.initElements(driver, ProductListPage.class)
+        ProductListPage productListPage = PageFactory.initElements(driver, ProductListPage)
         productListPage.search(title)
     }
     @Step("Open description for product <name>")
     def viewProductDescription(String name) {
-        ProductListPage productListPage = PageFactory.initElements(driver, ProductListPage.class)
+        ProductListPage productListPage = PageFactory.initElements(driver, ProductListPage)
         productListPage.openFirstProduct()
     }
 
     @Step("Verify product <specifier> as <value>")
     def verifyProduct(String specifier, String value) {
-        ProductPage productPage = PageFactory.initElements(driver, ProductPage.class)
+        ProductPage productPage = PageFactory.initElements(driver, ProductPage)
         productPage.verifyProductSpecifier(productPage.getWebElementByName(specifier), value)
     }
 
     @Step("Delete this product")
     def deleteProduct() {
-        PageFactory.initElements(driver, ProductPage.class).delete(driver)
+        PageFactory.initElements(driver, ProductPage).delete(driver)
     }
 
     @Step("On new products page")
@@ -63,7 +63,7 @@ public class ProductSpec {
 
     @Step("Open product edit page for stored productId")
     def openProductEditPage() {
-        def editProductPage = PageFactory.initElements(driver, EditProductPage.class)
+        def editProductPage = PageFactory.initElements(driver, EditProductPage)
         driver.get(EditProductPage.EditProductUrl(editProductPage.fetchStringFromScenarioDataStore("productId")))
     }
 
@@ -73,7 +73,7 @@ public class ProductSpec {
         List<String> columnNames = table.getColumnNames()
         rows.each { row ->
             openProductEditPage()
-            EditProductPage editProductPage = PageFactory.initElements(driver, EditProductPage.class)
+            EditProductPage editProductPage = PageFactory.initElements(driver, EditProductPage)
             editProductPage.updateProductValue(row.getCell(columnNames.get(0)), row.getCell(columnNames.get(1)))
         }
     }
@@ -83,7 +83,7 @@ public class ProductSpec {
         List<TableRow> rows = table.getTableRows()
         List<String> columnNames = table.getColumnNames()
         rows.each { row ->
-            def productPage = PageFactory.initElements(driver, ProductPage.class)
+            def productPage = PageFactory.initElements(driver, ProductPage)
             WebElement specifier = productPage.getWebElementByName((row.getCell(columnNames.get(0))))
             productPage.verifyProductSpecifier(specifier, row.getCell(columnNames.get(1)))
         }

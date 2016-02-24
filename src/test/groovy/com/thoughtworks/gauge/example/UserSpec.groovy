@@ -25,7 +25,7 @@ public class UserSpec {
     @Step("Fill in and send registration form")
     def searchUser() {
         String username = localPart()
-        SignUpPage signUpPage = PageFactory.initElements(driver, SignUpPage.class)
+        SignUpPage signUpPage = PageFactory.initElements(driver, SignUpPage)
         signUpPage.user_username.sendKeys(username)
         signUpPage.user_email.sendKeys(username.concat("@domain.com"))
         signUpPage.user_password.sendKeys("qweqwe")

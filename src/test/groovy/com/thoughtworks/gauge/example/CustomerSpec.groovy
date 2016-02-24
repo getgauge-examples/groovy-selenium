@@ -20,13 +20,13 @@ public class CustomerSpec {
 
     @Step("Search for customer <name>")
     def searchUser(String username) {
-        def customerPage = PageFactory.initElements(driver, CustomerPage.class)
+        def customerPage = PageFactory.initElements(driver, CustomerPage)
         customerPage.searchUser(username)
     }
 
     @Step("The customer <name> is listed")
     def verifyUserIsListed(String username) {
-        def customerPage = PageFactory.initElements(driver, CustomerPage.class)
+        def customerPage = PageFactory.initElements(driver, CustomerPage)
         customerPage.verifyUserListed(username)
     }
 
@@ -42,7 +42,7 @@ public class CustomerSpec {
 
     @Step("Just registered customer is listed")
     def verifyJustRegisteredCustomerListed() {
-        def customerPage = PageFactory.initElements(driver, CustomerPage.class)
+        def customerPage = PageFactory.initElements(driver, CustomerPage)
         def currentUser = customerPage.fetchStringFromScenarioDataStore("currentUser")
         verifyUserIsListed(currentUser)
     }
