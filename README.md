@@ -8,7 +8,7 @@ The tests are run on Firefox by default.
 ### Prerequisites
 
 This example requires the following softwares to run.
-  * Groovy
+  * Java
   * [Gauge](http://getgauge.io/download.html)
   * Gauge Java plugin
     * Gauge Java plugin can be installed using `gauge --install java`
@@ -25,13 +25,13 @@ java -jar activeadmin-demo.war
 ### On Linux / Mac
 
 ```
-mvn test
+mvn clean test
 ```
 
 ### On Windows
 
 ```
-mvn test
+mvn clean test
 ```
 This runs Gauge specs with [maven](https://maven.apache.org/).
 
