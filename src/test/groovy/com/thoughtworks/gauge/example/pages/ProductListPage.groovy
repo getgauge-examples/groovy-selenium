@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy
 import org.openqa.selenium.support.How
 
 class ProductListPage extends ProductPage {
-    static String ProductsUrl = Url.concat("admin/products/")
+    static String ProductsUrl = "${BASE_URL}/admin/products/"
 
     WebElement q_title,
             commit

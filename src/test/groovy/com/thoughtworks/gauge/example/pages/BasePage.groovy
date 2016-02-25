@@ -13,7 +13,7 @@ To use the examples locally you would need to follow these steps:
 */
 
  abstract class BasePage {
-    protected static String Url = System.getenv("APP_ENDPOINT")
+    protected static String BASE_URL = System.getenv("APP_ENDPOINT")
 
      static void storeStringToScenarioDataStore(String key, String value) {
         DataStore scenarioStore = DataStoreFactory.getScenarioDataStore()

@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy
 import org.openqa.selenium.support.How
 
 class CustomerPage extends BasePage {
-    static String CustomerUrl = Url.concat("admin/customers/")
+    static String CustomerUrl = "${BASE_URL}/admin/customers/"
 
     WebElement q_username,
             commit
