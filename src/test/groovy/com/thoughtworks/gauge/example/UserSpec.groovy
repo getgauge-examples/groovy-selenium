@@ -27,7 +27,7 @@ class UserSpec {
         String username = localPart()
         SignUpPage signUpPage = PageFactory.initElements(driver, SignUpPage)
         signUpPage.user_username.sendKeys(username)
-        signUpPage.user_email.sendKeys(username.concat("@domain.com"))
+        signUpPage.user_email.sendKeys("$username@domain.com")
         signUpPage.user_password.sendKeys("qweqwe")
         signUpPage.user_password_confirmation.sendKeys("qweqwe")
         signUpPage.commit.submit()
