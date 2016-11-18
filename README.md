@@ -1,5 +1,5 @@
 # Gauge example in Groovy
-[![Build Status](https://snap-ci.com/getgauge/gauge-example-groovy/branch/master/build_image)](https://snap-ci.com/getgauge/gauge-example-java/branch/master)
+[![Build Status](https://snap-ci.com/getgauge/gauge-example-groovy/branch/master/build_image)](https://snap-ci.com/getgauge/gauge-example-groovy/branch/master)
 [![HTML report](https://img.shields.io/badge/report-html-green.svg)](http://gauge-example-reports.herokuapp.com/groovy)
 [![Console report](https://img.shields.io/badge/report-console-blue.svg)](http://gauge-example-reports.herokuapp.com/groovy/console)
 
