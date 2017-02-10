@@ -5,7 +5,6 @@ before_install:
   - ./install_latest_gauge.sh /tmp >/dev/null 2>&1
   - source ~/.profile
   - gauge --install java
-  - bundle install
   - wget https://bintray.com/artifact/download/gauge/activeadmin-demo/activeadmin-demo.war
   - nohup java -jar activeadmin-demo.war >/dev/null 2>&1 &
   - sleep 30
