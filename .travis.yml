@@ -1,8 +1,6 @@
 os:
   - linux
 language: java
-env:
-  - DISPLAY="localhost:0.0"
 before_install: 
   - ./install_latest_gauge.sh /tmp >/dev/null 2>&1
   - source ~/.profile
