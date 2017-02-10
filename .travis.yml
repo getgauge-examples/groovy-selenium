@@ -15,8 +15,9 @@ before_install:
   - unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
   - chmod +x ~/Downloads/chromedriver
   - sudo mv -f ~/Downloads/chromedriver /usr/bin/chromedriver
+  - unset DISPLAY
   - sudo apt-get install xvfb
-  - xvfb &
+  - Xvfb &
 install:  
   - mvn clean test
   - heroku maintenance:on --app gauge-example-reports
