@@ -44,12 +44,3 @@ before_install:
   - Xvfb :0 -ac -screen 0 1024x768x24 &
 install:  
   - mvn clean test
-  - heroku maintenance:on --app gauge-example-reports
-  - heroku git:clone -a gauge-example-reports
-  - cd gauge-example-reports
-  - mkdir -p groovy/public
-  - cp -rf ../reports/html-report/* groovy/public
-  - git add .
-  - git commit -m "update Groovy reports for build ${TRAVIS_BUILD_NUMBER}"
-  - git push heroku master
-  - heroku maintenance:off --app gauge-example-reports
