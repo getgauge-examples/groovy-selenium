@@ -1,23 +1,46 @@
 os:
   - linux
 language: java
-before_install: 
-  - ./install_latest_gauge.sh /tmp >/dev/null 2>&1
+sudo: required
+dist: trusty
+
+addons:
+  artifacts:
+    debug: true
+    paths:
+      - ./reports/html-report
+      - ./reports/xml-report
+    target_paths: $TRAVIS_BUILD_NUMBER
+    working_dir: WORKING_DIR
+    bucket: simplelance
+    s3_region: us-west-1
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+  packages:
+    - unzip
+
+before_install:
+  - sh ./install_latest_gauge.sh /tmp
   - source ~/.profile
-  - gauge --install java
+  - gauge --install ruby
+  - bundle install
   - wget https://bintray.com/artifact/download/gauge/activeadmin-demo/activeadmin-demo.war
   - nohup java -jar activeadmin-demo.war >/dev/null 2>&1 &
   - sleep 30
   - sudo apt-get install unzip
-  - wget -N http://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip -P ~/Downloads
+  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+  - sudo apt-get update
+  - sudo apt-get install -y libappindicator1 fonts-liberation
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -f google-chrome*.deb
+  - sudo apt-get -f install
+  - wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -P ~/Downloads
   - unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
   - chmod +x ~/Downloads/chromedriver
   - sudo mv -f ~/Downloads/chromedriver /usr/bin/chromedriver
-  - export DISPLAY="0:0"
-  - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
-  - sudo apt-get update
-  - sudo apt-get install google-chrome-stable
   - sudo apt-get install xvfb
   - Xvfb :0 -ac -screen 0 1024x768x24 &
 install:  
