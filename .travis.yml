@@ -43,7 +43,10 @@ before_install:
   - npm install --global surge
   - sudo apt-get install xvfb
   - Xvfb :0 -ac -screen 0 1024x768x24 &
-install: travis_wait surge
+
+install: 
   - mvn clean test
+  
+after_script:
   - cd ./reports/html-report 
   - surge
