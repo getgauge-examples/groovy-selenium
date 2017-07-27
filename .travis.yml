@@ -25,8 +25,7 @@ addons:
 before_install:
   - sh ./install_latest_gauge.sh /tmp
   - source ~/.profile
-  - gauge --install ruby
-  - bundle install
+  - gauge install
   - wget https://bintray.com/artifact/download/gauge/activeadmin-demo/activeadmin-demo.war
   - nohup java -jar activeadmin-demo.war >/dev/null 2>&1 &
   - sleep 30
