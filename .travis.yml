@@ -14,7 +14,6 @@ addons:
     target_paths: $TRAVIS_BUILD_NUMBER
     working_dir: WORKING_DIR
     bucket: simplelance
-    s3_region: us-west-1
   apt:
     sources:
     - google-chrome
@@ -41,13 +40,8 @@ before_install:
   - unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
   - chmod +x ~/Downloads/chromedriver
   - sudo mv -f ~/Downloads/chromedriver /usr/bin/chromedriver
-  - npm install --global surge
   - sudo apt-get install xvfb
   - Xvfb :0 -ac -screen 0 1024x768x24 &
 
 install: 
   - mvn clean test
-  
-after_script:
-  - cd ./reports/html-report 
-  - surge
