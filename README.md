@@ -12,7 +12,7 @@ This example requires the following softwares to run.
   * Java
   * [Gauge](http://getgauge.io/download.html)
   * Gauge Java plugin
-    * Gauge Java plugin can be installed using `gauge --install java`
+    * Gauge Java plugin can be installed using `gauge install java`
 
 You can optionally install [Gauge-IntelliJ plugin](http://getgauge.io/documentation/user/current/ide_support/intellij_idea.html).
 
