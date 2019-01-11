@@ -10,11 +10,11 @@ The tests are run on Firefox by default. You can set environment to run on diffe
 
 This example requires the following softwares to run.
   * Java
-  * [Gauge](http://getgauge.io/download.html)
+  * [Gauge](https://gauge.org/)
   * Gauge Java plugin
     * Gauge Java plugin can be installed using `gauge install java`
 
-You can optionally install [Gauge-IntelliJ plugin](http://getgauge.io/documentation/user/current/ide_support/intellij_idea.html).
+You can optionally install [Gauge-IntelliJ plugin](https://docs.gauge.org/latest/installation.html#ide-plugins).
 
 ### Setting up the System Under Test (SUT)
 
@@ -33,7 +33,7 @@ mvn clean test
 This runs Gauge specs with [maven](https://maven.apache.org/).
 
 Note:
-  * Gauge can also be used with other [build tools](http://getgauge.io/documentation/user/current/test_code/java/using_build_tools.html) like gradle and ant.
+  * Gauge can also be used with other [build tools](https://docs.gauge.org/latest/configuration.html#build-tools) like gradle and ant.
   * You can use Gauge even without a build script!
 
 ## Topics covered in the example
